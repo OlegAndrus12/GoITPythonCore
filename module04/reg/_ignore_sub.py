@@ -11,7 +11,7 @@ def replace(x):
 def replace_spam_words(text, spam_words):
     r = rf"\b({'|'.join(spam_words)})\b"
     print(r)
-    return re.sub(r, replace, text, flags=re.IGNORECASE)
+    return re.sub(r, lambda x: "*" * len(x.group()), text, flags=re.IGNORECASE)
 
 text = " to be or not to be an idiot. BE a good coder!"
 # try without be / ignore
